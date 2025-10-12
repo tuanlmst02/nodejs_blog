@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
+    "beautiful": "lint-staged",
     "start": "nodemon --inspect src/index.js",
     "build:sass": "sass src/resources/scss/app.scss src/public/css/app.css",
     "watch:sass": "sass --watch src/resources/scss/app.scss:src/public/css/app.css",
@@ -23,14 +24,25 @@
     "url": "https://github.com/tuanlmst02/nodejs_blog/issues"
   },
   "homepage": "https://github.com/tuanlmst02/nodejs_blog#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
     "express-handlebars": "^8.0.1"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.4",
     "morgan": "^1.10.1",
     "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
     "sass": "^1.93.2"
   }
 }
