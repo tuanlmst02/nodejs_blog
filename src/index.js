@@ -10,7 +10,7 @@ const route = require('./routes');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(          express.urlencoded());
+app.use(express.urlencoded());
 app.use(express.json());
 
 //HTTP logger
@@ -28,11 +28,11 @@ app.set(
 
     'hbs',
 );
-                  app.set('views', dist);
- 
-// Routes init
-route(          app);
+app.set('views', dist);
 
-app.listen(     port, () => {
+// Routes init
+route(app);
+
+app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });

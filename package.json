@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "beautiful": "lint-staged",
+    "beautiful": "prettier --single-quote --trailing-comma all --tab-width 4 --write 'src/**/*.{js,json,scss}'",
     "start": "nodemon --inspect src/index.js",
     "build:sass": "sass src/resources/scss/app.scss src/public/css/app.css",
     "watch:sass": "sass --watch src/resources/scss/app.scss:src/public/css/app.css",
