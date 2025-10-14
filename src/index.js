@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const { engine } = require('express-handlebars');
 const app = express();
 const port = 3000;
-const dist = path.join(__dirname, 'resources', 'views');
+const dist = path.join(__dirname, 'resources/views');
 
 const route = require('./routes');
 const db = require('./config/db');
@@ -18,7 +18,7 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 //HTTP logger
-// app.use(morgan('combined'));
+app.use(morgan('combined'));
 
 //template engine
 app.engine(
@@ -32,3 +32,7 @@ app.set('views', dist);
 
 // Routes init
 route(app);
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+});

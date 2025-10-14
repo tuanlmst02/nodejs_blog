@@ -1,8 +1,9 @@
-@import 'variables';
+@use 'variables';
 
-h1 {
-    color: $red_color;
+.card-body a {
+    text-decoration: none;
 }
-h2 {
-    color: green;
+
+.card-body a:hover {
+    color: variables.$red_color;
 }
